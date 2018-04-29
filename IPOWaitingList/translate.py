@@ -6,8 +6,8 @@ import urllib
 import random
 import json
 import re
-_appid = '20180427000151289'
-_key = 'NRnCzhgcSyBAaT0wSO4q'
+# _appid = 
+# _key = 
 
 
 def TranslateByBaidu(text, appid=_appid, secretKey=_key, fromLang='auto', toLang='zh'):
