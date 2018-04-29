@@ -4,4 +4,4 @@ debug.log
 *.pyc
 *.html
 *.csv
-translator.py
+translator.appid
