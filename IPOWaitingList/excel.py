@@ -54,6 +54,17 @@ def num2col(num):
     return col
 
 
+def idx2ExcelIdx(idx):
+    if isinstance(idx, list) or isinstance(idx, tuple):
+        if len(idx) == 2:
+            return num2col(idx[1]) + str(idx[0])
+        else:
+            raise ValueError(
+                'Idx length is not 2, cannot converted to excel idx')
+    else:
+        raise ValueError('Idx type Error, cannot converted to excel idx')
+
+
 class ExcelWriter(object):
     """docstring for ExcelWriter"""
 
@@ -69,8 +80,18 @@ class ExcelWriter(object):
         super(ExcelWriter, self).__init__()
         self.fh = fileHandle
 
-    def write(self, data):
+    def write(self, data, filename):
+        wb = Workbook()
+        sheet = wb.active
+        sheet.title = 'Sheet1'
         row_counter = 0
+        for i in range(len(data)):
+            col_counter = 0
+            for j in range(len(data[i])):
+                sheet[idx2ExcelIdx((i + 1, j + 1))] = str(data[i][j])
+            col_counter += 1
+        row_counter += 1
+        wb.save(filename)
 
 
 if __name__ == '__main__':
@@ -85,3 +106,4 @@ if __name__ == '__main__':
             print(rand, txt, txtrand)
 
     print(num2col(689))
+    print(idx2ExcelIdx((2, 10)))

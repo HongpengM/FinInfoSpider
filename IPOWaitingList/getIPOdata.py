@@ -63,7 +63,7 @@ class SiteSpider(object):
         if filename == '_output.xlsx':
             filename = self.target + filename
         excelWriter = excel.ExcelWriter(osp.join(path, filename))
-        excelWriter.write(self.data)
+        excelWriter.write(self.data, filename)
 
     def spider(self):
         return self.spiderMethod()
@@ -108,4 +108,4 @@ if __name__ == '__main__':
     # print(decoder.decodeHKEX(html))
     spider = SiteSpider('hkex')
     print(spider.spider())
-    spider.write_csv()
+    spider.write_excel()
