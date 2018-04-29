@@ -7,8 +7,6 @@ import random
 import json
 import re
 import warnings
-_appid = '20180427000151289'
-_key = 'NRnCzhgcSyBAaT0wSO4q'
 _default_appid_file = 'translator.appid'
 
 
@@ -49,8 +47,6 @@ class Translator(object):
         return (salt, sign)
 
     def translate(self, text, fromLang='auto', toLang='zh'):
-        print(text)
-
         def chunkstring(string, length):
             return (string[0 + i:length + i] for i in range(0, len(string), length))
         _ = []

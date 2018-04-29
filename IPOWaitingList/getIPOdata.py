@@ -5,9 +5,11 @@ from bs4 import BeautifulSoup
 import os
 import os.path as osp
 import random
-import decoder
+import re
 import csv
 import excel
+import decoder
+import translator
 
 
 def GetHtml(url, saveFile):
@@ -27,6 +29,14 @@ def GetHtmlTxt(url):
     html = BeautifulSoup(browser.page_source, 'lxml')
     html = html.prettify()
     return html
+
+
+def containChinese(txt):
+
+    if re.findall(r'[\u4e00-\u9fff]+', txt):
+        return True
+    else:
+        return False
 
 
 class SiteSpider(object):
@@ -65,6 +75,28 @@ class SiteSpider(object):
         excelWriter = excel.ExcelWriter(osp.join(path, filename))
         excelWriter.write(self.data, filename)
 
+    def translate(self):
+        trans = translator.Translator()
+        _newdata = []
+        for i in range(len(self.data)):
+            _ = []
+            for j in range(len(self.data[i])):
+                __ = []
+                if isinstance(self.data[i][j], tuple) or isinstance(self.data[i][j], list):
+                    for k in range(len(self.data[i][j])):
+                        if containChinese(self.data[i][j][k]):
+                            __.append(trans.translate(self.data[i][j][k]))
+                        else:
+                            __.append(self.data[i][j][k])
+                    if __:
+                        _.append(__)
+                else:
+                    if containChinese(self.data[i][j]):
+                        _.append(trans.translate(self.data[i][j]))
+            _newdata.append(_)
+        self.data = _newdata
+        print(self.data)
+
     def spider(self):
         return self.spiderMethod()
 
@@ -97,8 +129,8 @@ class SiteSpider(object):
 
 
 if __name__ == '__main__':
-    url = 'https://www.nyse.com/ipo-center/filings'
-    save_file = 'nyse.html'
+    # url = 'https://www.nyse.com/ipo-center/filings'
+    # save_file = 'nyse.html'
     # GetHtml(url, saveFile)
     # GetHtml(
     # 'https://www.nasdaq.com/markets/ipos/activity.aspx?tab=withdrawn', 'nasdaq.html')
@@ -108,4 +140,6 @@ if __name__ == '__main__':
     # print(decoder.decodeHKEX(html))
     spider = SiteSpider('hkex')
     print(spider.spider())
+    spider.translate()
     spider.write_excel()
+    # print(containChinese('發佈'))
