@@ -2,7 +2,6 @@ from bs4 import BeautifulSoup, Tag
 import os
 import csv
 import pdb
-
 import numpy as np
 
 
@@ -34,7 +33,6 @@ class Extractor(object):
         self._output = []
         row_ind = 0
         col_ind = 0
-        print(self._table)
         # print(len(list(self._table.find_all('tr'))))
         for row in self._table.find_all('tr'):
             # record the smallest row_span, so that we know how many rows
@@ -54,8 +52,11 @@ class Extractor(object):
                     for i in cell.children:
                         if isinstance(i, Tag) and i.name == 'a':
                             __hyperlink = True
-                            hyperlink = i.attrs['href']
-                            print(i.get_text().strip(), hyperlink)
+                            try:
+                                hyperlink = i.attrs['href']
+                            except KeyError:
+                                pass
+                            # print(i.get_text().strip(), hyperlink)
 
                     row_span = int(cell.get('rowspan')) if cell.get(
                         'rowspan') else 1
@@ -101,7 +102,7 @@ class Extractor(object):
     def return_list(self):
         return self._output
 
-    def filter_output(self, fun):
+    def filter(self, fun):
         self._output = fun(self._output)
 
     def write_to_csv(self, filename='output.csv', path='.'):
