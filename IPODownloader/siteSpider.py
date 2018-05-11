@@ -1,5 +1,4 @@
 from selenium import webdriver
-browser = webdriver.Chrome()
 from time import sleep
 from bs4 import BeautifulSoup
 import os
@@ -10,33 +9,7 @@ import csv
 import excel
 import decoder
 import translator
-
-
-def GetHtml(url, saveFile):
-    browser.get(url)
-    html = BeautifulSoup(browser.page_source, 'lxml')
-    html = html.prettify()
-    try:
-        html = html.encode('gbk', 'ignore').decode('gbk', 'ignore')
-    except UnicodeError:
-        pass
-    with open(saveFile, 'w') as page:
-        page.write(html)
-
-
-def GetHtmlTxt(url):
-    browser.get(url)
-    html = BeautifulSoup(browser.page_source, 'lxml')
-    html = html.prettify()
-    return html
-
-
-def containChinese(txt):
-
-    if re.findall(r'[\u4e00-\u9fff]+', txt):
-        return True
-    else:
-        return False
+from utils import *
 
 
 class SiteSpider(object):
@@ -44,6 +17,7 @@ class SiteSpider(object):
 
     def __init__(self, target):
         super(SiteSpider, self).__init__()
+        self._browser = webdriver.Chrome()
         self._siteBaseDict = {
             'nyse': 'https://www.nyse.com/ipo-center/filings',
             'nasdaq': 'https://www.nasdaq.com/markets/ipos/activity.aspx?tab=###',
@@ -59,6 +33,14 @@ class SiteSpider(object):
             self.spiderMethod = self._spiderDict[self.target]
         else:
             raise ValueError('Site spider not implemented')
+
+    @property
+    def browser(self):
+        return self._browser
+
+    def close(self):
+        self._browser.close()
+        return
 
     def write_csv(self, path=os.getcwd(), filename='_output.csv'):
         if filename == '_output.csv':
@@ -97,11 +79,14 @@ class SiteSpider(object):
         self.data = _newdata
         print(self.data)
 
-    def spider(self):
-        return self.spiderMethod()
+    def spider(self, url=None):
+        if not url:
+            return self.spiderMethod()
+        else:
+            return self.spiderMethod(url)
 
     def spiderNYSE(self):
-        html = GetHtmlTxt(self._siteBaseDict[self.target])
+        html = GetHtmlTxt(self.browser, self._siteBaseDict[self.target])
         de = decoder.PageDecoder(self.target)
         de.decode(html)
         self.data = de.data()
@@ -112,16 +97,19 @@ class SiteSpider(object):
         self.data = []
         replace_list = ['pricings', 'upcoming', 'filings', 'withdrawn']
         for i in replace_list:
-            html = GetHtmlTxt(
-                self._siteBaseDict[self.target].replace('###', i))
+            html = GetHtmlTxt(self.browser,
+                              self._siteBaseDict[self.target].replace('###', i))
             de = decoder.PageDecoder(self.target)
             de.decode(html)
             self.data += de.data()
             # sleep()
         return self.data
 
-    def spiderHKEX(self):
-        html = GetHtmlTxt(self._siteBaseDict[self.target])
+    def spiderHKEX(self, url=None):
+        if not url:
+            html = GetHtmlTxt(self.browser, self._siteBaseDict[self.target])
+        else:
+            html = GetHtmlTxt(self.browser, url)
         de = decoder.PageDecoder(self.target)
         de.decode(html)
         self.data = de.data()
@@ -138,8 +126,9 @@ if __name__ == '__main__':
     # html = GetHtmlTxt(
     #     'http://www.hkexnews.hk/APP/SEHKAPPMainIndex_c.htm')
     # print(decoder.decodeHKEX(html))
-    spider = SiteSpider('nasdaq')
-    print(spider.spider())
-    spider.translate()
-    spider.write_excel()
+    spider = SiteSpider('hkex')
+    print(spider.spider('http://www.hkexnews.hk/APP/SEHKYear2017_c.htm'))
+    spider.close()
+    # spider.translate()
+    # spider.write_excel()
     # print(containChinese('發佈'))

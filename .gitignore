@@ -4,4 +4,6 @@ debug.log
 *.pyc
 *.html
 *.csv
+*.xlsx
 translator.appid
+/IPODownloader/download/*.pdf
