@@ -1,21 +1,44 @@
-# IPO Waiting List Spider
+# IPO Downloader
 
-爬取NYSE、NASDAQ、HKEX的IPO排队信息，并自动翻译成中文的爬虫
+根据列表搜索并爬取港交所HKEX的上市公司的指定文档
 
 ## Functions功能
 
-1. 爬取NYSE、NASDAQ、HKEX的IPO排队信息
-2. 自动机翻
+1. 搜索并下载港交所上市公司的指定文档
 
-### 自动翻译
+### searchAgent.py
 
-translator目前使用百度翻译API 
+class HKEXSearchAgent 搜索港交所指定公司并获取指定文档的pdf下载链接
 
-* 需要申请，填入appid 和key
+```python
+hkexAgent = HKEXSearchAgent()
+# 搜索指定上市公司的招股书
+url = hkexAgent.searchForFile(Stock_name, ['股份', '配售', '全球', '預覽資料集'])
+```
 
-  https://fanyi-api.baidu.com/api/trans/product/desktop?req=developer
+### Downloader.py
 
-* 将文件按照translator.appid.example 填入，填入后更名为translator.appid即可 
+下载指定链接文件并自动命名
+
+```
+downloader = Downloader(url_list, savefile_name_list)
+downloader.download()
+```
 
 
+
+### excel.py
+
+list转换成xlsx
+
+```python
+excelwriter = excel.ExcelWriter()
+excelwriter.write(a_list, 'name.xlsx')
+```
+
+## Requirement
+
+```python
+selenium,bs4,tqdm
+```
 

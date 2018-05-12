@@ -14,7 +14,11 @@ from selenium.common.exceptions import WebDriverException
 
 
 class HKEXSearchAgent(object):
-    """docstring for HKEXSearch"""
+    """docstring for HKEXSearch
+    hkexAgent = HKEXSearchAgent()
+    # 搜索指定上市公司的招股书
+    url = hkexAgent.searchForFile(Stock_name, ['股份', '配售', '全球', '預覽資料集'])
+    """
 
     def __init__(self):
         super(HKEXSearchAgent, self).__init__()
@@ -29,6 +33,7 @@ class HKEXSearchAgent(object):
         self._browser.close()
 
     def searchForFile(self, stock_name, filenameList, key_word=None):
+        # TODO: Enable multi level 
         self.browser.get(self.searchEngine)
         input_stock_name = self.browser.find_element_by_name(
             'ctl00$txt_stock_name')
