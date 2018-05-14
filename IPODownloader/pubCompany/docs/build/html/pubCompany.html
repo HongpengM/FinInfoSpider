@@ -1,0 +1,497 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pubCompany package &mdash; pubCompany 0.1 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pubCompany
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">pubCompany package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pubCompany.decoder">pubCompany.decoder module</a></li>
+<li><a class="reference internal" href="#pubcompany-downloadhkexipofiles-module">pubCompany.downloadHKEXIPOFiles module</a></li>
+<li><a class="reference internal" href="#module-pubCompany.downloader">pubCompany.downloader module</a></li>
+<li><a class="reference internal" href="#module-pubCompany.excel">pubCompany.excel module</a></li>
+<li><a class="reference internal" href="#module-pubCompany.searchAgent">pubCompany.searchAgent module</a></li>
+<li><a class="reference internal" href="#module-pubCompany.siteSpider">pubCompany.siteSpider module</a></li>
+<li><a class="reference internal" href="#module-pubCompany.tableExtractor">pubCompany.tableExtractor module</a></li>
+<li><a class="reference internal" href="#pubcompany-testextractor-module">pubCompany.testExtractor module</a></li>
+<li><a class="reference internal" href="#module-pubCompany.utils">pubCompany.utils module</a></li>
+<li><a class="reference internal" href="#module-pubCompany">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pubCompany</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>pubCompany package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/pubCompany.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pubcompany-package">
+<h1>pubCompany package<a class="headerlink" href="#pubcompany-package" title="永久链接至标题">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="永久链接至标题">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pubCompany.zhconv.html">pubCompany.zhconv package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pubCompany.zhconv.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pubCompany.zhconv.html#pubcompany-zhconv-zhconv-module">pubCompany.zhconv.zhconv module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pubCompany.zhconv.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="module-pubCompany.decoder">
+<span id="pubcompany-decoder-module"></span><h2>pubCompany.decoder module<a class="headerlink" href="#module-pubCompany.decoder" title="永久链接至标题">¶</a></h2>
+<dl class="class">
+<dt id="pubCompany.decoder.PageDecoder">
+<em class="property">class </em><code class="descclassname">pubCompany.decoder.</code><code class="descname">PageDecoder</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/decoder.html#PageDecoder"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.decoder.PageDecoder" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(在 Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>docstring for PageDecoder</p>
+<dl class="method">
+<dt id="pubCompany.decoder.PageDecoder.data">
+<code class="descname">data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/decoder.html#PageDecoder.data"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.decoder.PageDecoder.data" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.decoder.PageDecoder.decode">
+<code class="descname">decode</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/decoder.html#PageDecoder.decode"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.decoder.PageDecoder.decode" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.decoder.PageDecoder.decodeHKEX">
+<code class="descname">decodeHKEX</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/decoder.html#PageDecoder.decodeHKEX"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.decoder.PageDecoder.decodeHKEX" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.decoder.PageDecoder.decodeNASDAQ">
+<code class="descname">decodeNASDAQ</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/decoder.html#PageDecoder.decodeNASDAQ"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.decoder.PageDecoder.decodeNASDAQ" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.decoder.PageDecoder.decodeNYSENew">
+<code class="descname">decodeNYSENew</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/decoder.html#PageDecoder.decodeNYSENew"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.decoder.PageDecoder.decodeNYSENew" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="pubcompany-downloadhkexipofiles-module">
+<h2>pubCompany.downloadHKEXIPOFiles module<a class="headerlink" href="#pubcompany-downloadhkexipofiles-module" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="module-pubCompany.downloader">
+<span id="pubcompany-downloader-module"></span><h2>pubCompany.downloader module<a class="headerlink" href="#module-pubCompany.downloader" title="永久链接至标题">¶</a></h2>
+<dl class="class">
+<dt id="pubCompany.downloader.Downloader">
+<em class="property">class </em><code class="descclassname">pubCompany.downloader.</code><code class="descname">Downloader</code><span class="sig-paren">(</span><em>dli</em>, <em>nli=None</em>, <em>outpath='C:\Users\K\Desktop\FinSpider\IPODownloader\pubCompany\docs\download'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/downloader.html#Downloader"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.downloader.Downloader" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(在 Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>docstring for Downloader</p>
+<dl class="method">
+<dt id="pubCompany.downloader.Downloader.download">
+<code class="descname">download</code><span class="sig-paren">(</span><em>sleeptime=3</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/downloader.html#Downloader.download"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.downloader.Downloader.download" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pubCompany.excel">
+<span id="pubcompany-excel-module"></span><h2>pubCompany.excel module<a class="headerlink" href="#module-pubCompany.excel" title="永久链接至标题">¶</a></h2>
+<dl class="class">
+<dt id="pubCompany.excel.ExcelWriter">
+<em class="property">class </em><code class="descclassname">pubCompany.excel.</code><code class="descname">ExcelWriter</code><span class="sig-paren">(</span><em>fileHandle=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/excel.html#ExcelWriter"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.excel.ExcelWriter" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(在 Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>docstring for ExcelWriter</p>
+<dl class="method">
+<dt id="pubCompany.excel.ExcelWriter.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>data</em>, <em>filename=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/excel.html#ExcelWriter.write"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.excel.ExcelWriter.write" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.excel.ExcelWriter.write_excel">
+<code class="descname">write_excel</code><span class="sig-paren">(</span><em>path='C:\\Users\\K\\Desktop\\FinSpider\\IPODownloader\\pubCompany\\docs'</em>, <em>filename='_output.xlsx'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/excel.html#ExcelWriter.write_excel"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.excel.ExcelWriter.write_excel" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pubCompany.excel.col2num">
+<code class="descclassname">pubCompany.excel.</code><code class="descname">col2num</code><span class="sig-paren">(</span><em>col</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/excel.html#col2num"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.excel.col2num" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pubCompany.excel.idx2ExcelIdx">
+<code class="descclassname">pubCompany.excel.</code><code class="descname">idx2ExcelIdx</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/excel.html#idx2ExcelIdx"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.excel.idx2ExcelIdx" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pubCompany.excel.num2col">
+<code class="descclassname">pubCompany.excel.</code><code class="descname">num2col</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/excel.html#num2col"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.excel.num2col" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-pubCompany.searchAgent">
+<span id="pubcompany-searchagent-module"></span><h2>pubCompany.searchAgent module<a class="headerlink" href="#module-pubCompany.searchAgent" title="永久链接至标题">¶</a></h2>
+<dl class="class">
+<dt id="pubCompany.searchAgent.HKEXSearchAgent">
+<em class="property">class </em><code class="descclassname">pubCompany.searchAgent.</code><code class="descname">HKEXSearchAgent</code><a class="reference internal" href="_modules/pubCompany/searchAgent.html#HKEXSearchAgent"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.searchAgent.HKEXSearchAgent" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(在 Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>docstring for HKEXSearch
+hkexAgent = HKEXSearchAgent()
+# 搜索指定上市公司的招股书
+url = hkexAgent.searchForFile(Stock_name, [&#8216;股份&#8217;, &#8216;配售&#8217;, &#8216;全球&#8217;, &#8216;預覽資料集&#8217;])</p>
+<dl class="attribute">
+<dt id="pubCompany.searchAgent.HKEXSearchAgent.browser">
+<code class="descname">browser</code><a class="headerlink" href="#pubCompany.searchAgent.HKEXSearchAgent.browser" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.searchAgent.HKEXSearchAgent.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/searchAgent.html#HKEXSearchAgent.close"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.searchAgent.HKEXSearchAgent.close" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.searchAgent.HKEXSearchAgent.fileUrlExtractor">
+<code class="descname">fileUrlExtractor</code><span class="sig-paren">(</span><em>filenameList</em>, <em>txt</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/searchAgent.html#HKEXSearchAgent.fileUrlExtractor"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.searchAgent.HKEXSearchAgent.fileUrlExtractor" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.searchAgent.HKEXSearchAgent.searchForFile">
+<code class="descname">searchForFile</code><span class="sig-paren">(</span><em>stock_name</em>, <em>filenameList</em>, <em>key_word=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/searchAgent.html#HKEXSearchAgent.searchForFile"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.searchAgent.HKEXSearchAgent.searchForFile" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pubCompany.searchAgent.test">
+<code class="descclassname">pubCompany.searchAgent.</code><code class="descname">test</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/searchAgent.html#test"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.searchAgent.test" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-pubCompany.siteSpider">
+<span id="pubcompany-sitespider-module"></span><h2>pubCompany.siteSpider module<a class="headerlink" href="#module-pubCompany.siteSpider" title="永久链接至标题">¶</a></h2>
+<dl class="class">
+<dt id="pubCompany.siteSpider.SiteSpider">
+<em class="property">class </em><code class="descclassname">pubCompany.siteSpider.</code><code class="descname">SiteSpider</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/siteSpider.html#SiteSpider"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.siteSpider.SiteSpider" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(在 Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>docstring for SiteSpider</p>
+<dl class="attribute">
+<dt id="pubCompany.siteSpider.SiteSpider.browser">
+<code class="descname">browser</code><a class="headerlink" href="#pubCompany.siteSpider.SiteSpider.browser" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.siteSpider.SiteSpider.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/siteSpider.html#SiteSpider.close"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.siteSpider.SiteSpider.close" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.siteSpider.SiteSpider.spider">
+<code class="descname">spider</code><span class="sig-paren">(</span><em>url=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/siteSpider.html#SiteSpider.spider"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.siteSpider.SiteSpider.spider" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.siteSpider.SiteSpider.spiderHKEX">
+<code class="descname">spiderHKEX</code><span class="sig-paren">(</span><em>url=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/siteSpider.html#SiteSpider.spiderHKEX"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.siteSpider.SiteSpider.spiderHKEX" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.siteSpider.SiteSpider.spiderNASDAQ">
+<code class="descname">spiderNASDAQ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/siteSpider.html#SiteSpider.spiderNASDAQ"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.siteSpider.SiteSpider.spiderNASDAQ" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.siteSpider.SiteSpider.spiderNYSE">
+<code class="descname">spiderNYSE</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/siteSpider.html#SiteSpider.spiderNYSE"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.siteSpider.SiteSpider.spiderNYSE" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.siteSpider.SiteSpider.translate">
+<code class="descname">translate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/siteSpider.html#SiteSpider.translate"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.siteSpider.SiteSpider.translate" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.siteSpider.SiteSpider.write_csv">
+<code class="descname">write_csv</code><span class="sig-paren">(</span><em>path='C:\\Users\\K\\Desktop\\FinSpider\\IPODownloader\\pubCompany\\docs'</em>, <em>filename='_output.csv'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/siteSpider.html#SiteSpider.write_csv"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.siteSpider.SiteSpider.write_csv" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.siteSpider.SiteSpider.write_excel">
+<code class="descname">write_excel</code><span class="sig-paren">(</span><em>path='C:\\Users\\K\\Desktop\\FinSpider\\IPODownloader\\pubCompany\\docs'</em>, <em>filename='_output.xlsx'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/siteSpider.html#SiteSpider.write_excel"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.siteSpider.SiteSpider.write_excel" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pubCompany.tableExtractor">
+<span id="pubcompany-tableextractor-module"></span><h2>pubCompany.tableExtractor module<a class="headerlink" href="#module-pubCompany.tableExtractor" title="永久链接至标题">¶</a></h2>
+<dl class="class">
+<dt id="pubCompany.tableExtractor.Extractor">
+<em class="property">class </em><code class="descclassname">pubCompany.tableExtractor.</code><code class="descname">Extractor</code><span class="sig-paren">(</span><em>table</em>, <em>id_=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/tableExtractor.html#Extractor"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.tableExtractor.Extractor" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(在 Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="pubCompany.tableExtractor.Extractor.filter">
+<code class="descname">filter</code><span class="sig-paren">(</span><em>fun</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/tableExtractor.html#Extractor.filter"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.tableExtractor.Extractor.filter" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.tableExtractor.Extractor.parse">
+<code class="descname">parse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/tableExtractor.html#Extractor.parse"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.tableExtractor.Extractor.parse" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.tableExtractor.Extractor.return_list">
+<code class="descname">return_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/tableExtractor.html#Extractor.return_list"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.tableExtractor.Extractor.return_list" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pubCompany.tableExtractor.Extractor.write_to_csv">
+<code class="descname">write_to_csv</code><span class="sig-paren">(</span><em>filename='output.csv'</em>, <em>path='.'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/tableExtractor.html#Extractor.write_to_csv"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.tableExtractor.Extractor.write_to_csv" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="pubcompany-testextractor-module">
+<h2>pubCompany.testExtractor module<a class="headerlink" href="#pubcompany-testextractor-module" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="module-pubCompany.utils">
+<span id="pubcompany-utils-module"></span><h2>pubCompany.utils module<a class="headerlink" href="#module-pubCompany.utils" title="永久链接至标题">¶</a></h2>
+<dl class="function">
+<dt id="pubCompany.utils.GetBrowserTxt">
+<code class="descclassname">pubCompany.utils.</code><code class="descname">GetBrowserTxt</code><span class="sig-paren">(</span><em>browser</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/utils.html#GetBrowserTxt"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.utils.GetBrowserTxt" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pubCompany.utils.GetHtml">
+<code class="descclassname">pubCompany.utils.</code><code class="descname">GetHtml</code><span class="sig-paren">(</span><em>browser</em>, <em>saveFile</em>, <em>url=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/utils.html#GetHtml"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.utils.GetHtml" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pubCompany.utils.GetHtmlTxt">
+<code class="descclassname">pubCompany.utils.</code><code class="descname">GetHtmlTxt</code><span class="sig-paren">(</span><em>browser</em>, <em>url=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/utils.html#GetHtmlTxt"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.utils.GetHtmlTxt" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pubCompany.utils.UnicodeCorr">
+<code class="descclassname">pubCompany.utils.</code><code class="descname">UnicodeCorr</code><span class="sig-paren">(</span><em>html</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/utils.html#UnicodeCorr"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.utils.UnicodeCorr" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pubCompany.utils.containChinese">
+<code class="descclassname">pubCompany.utils.</code><code class="descname">containChinese</code><span class="sig-paren">(</span><em>txt</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/utils.html#containChinese"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.utils.containChinese" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pubCompany.utils.html2soup">
+<code class="descclassname">pubCompany.utils.</code><code class="descname">html2soup</code><span class="sig-paren">(</span><em>html_txt</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/utils.html#html2soup"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.utils.html2soup" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pubCompany.utils.stringPurify">
+<code class="descclassname">pubCompany.utils.</code><code class="descname">stringPurify</code><span class="sig-paren">(</span><em>string</em>, <em>delChar=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pubCompany/utils.html#stringPurify"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#pubCompany.utils.stringPurify" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-pubCompany">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pubCompany" title="永久链接至标题">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2018, Hongpeng M.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

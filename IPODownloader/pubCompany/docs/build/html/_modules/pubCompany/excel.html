@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pubCompany.excel &mdash; pubCompany 0.1 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> pubCompany
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pubCompany</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">模块代码</a> &raquo;</li>
+        
+      <li>pubCompany.excel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>pubCompany.excel 源代码</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">openpyxl</span>
+<span class="kn">from</span> <span class="nn">openpyxl</span> <span class="k">import</span> <span class="n">Workbook</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">os.path</span> <span class="k">as</span> <span class="nn">osp</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+
+<div class="viewcode-block" id="col2num"><a class="viewcode-back" href="../../pubCompany.html#pubCompany.excel.col2num">[文档]</a><span class="k">def</span> <span class="nf">col2num</span><span class="p">(</span><span class="n">col</span><span class="p">):</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">col</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">:</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">26</span> <span class="o">+</span> <span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">num</span></div>
+
+
+<div class="viewcode-block" id="num2col"><a class="viewcode-back" href="../../pubCompany.html#pubCompany.excel.num2col">[文档]</a><span class="k">def</span> <span class="nf">num2col</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">zero2l</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">z</span> <span class="o">-</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">colnum</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">power</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">l</span> <span class="o">**</span> <span class="p">(</span><span class="n">power</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)):</span>
+        <span class="n">power</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1"># print(&#39;Iter  start&#39;, power, num, colnum)</span>
+        <span class="c1"># print(zero2l(num % (l ** power), l ** power))</span>
+        <span class="c1"># print((l ** (power - 1)))</span>
+        <span class="c1"># print(zero2l(num % (l ** power), l ** power) / (l ** (power - 1)))</span>
+        <span class="n">colnum</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="nb">int</span><span class="p">(</span><span class="n">zero2l</span><span class="p">(</span><span class="n">num</span> <span class="o">%</span> <span class="p">(</span><span class="n">l</span> <span class="o">**</span> <span class="n">power</span><span class="p">),</span> <span class="n">l</span> <span class="o">**</span> <span class="n">power</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">l</span> <span class="o">**</span> <span class="p">(</span><span class="n">power</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))))</span>
+        <span class="n">num</span> <span class="o">-=</span> <span class="n">colnum</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">l</span> <span class="o">**</span> <span class="p">(</span><span class="n">power</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="c1"># print(&#39;Iter  end&#39;, power, num, colnum)</span>
+
+    <span class="n">colnum</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">colnum</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">colnum</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># print(col)</span>
+        <span class="c1"># print(&#39;*&#39; * 30)</span>
+        <span class="k">return</span> <span class="n">col</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colnum</span><span class="p">)):</span>
+        <span class="c1"># if i == 0 and colnum[0] == 1:</span>
+        <span class="c1">#     col += chr(ord(&#39;A&#39;) + colnum[i] - 1)</span>
+        <span class="c1"># else:</span>
+        <span class="n">col</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">colnum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># print(col)</span>
+    <span class="c1"># print(&#39;*&#39; * 30)</span>
+    <span class="k">return</span> <span class="n">col</span></div>
+
+
+<div class="viewcode-block" id="idx2ExcelIdx"><a class="viewcode-back" href="../../pubCompany.html#pubCompany.excel.idx2ExcelIdx">[文档]</a><span class="k">def</span> <span class="nf">idx2ExcelIdx</span><span class="p">(</span><span class="n">idx</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">num2col</span><span class="p">(</span><span class="n">idx</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s1">&#39;Idx length is not 2, cannot converted to excel idx&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Idx type Error, cannot converted to excel idx&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ExcelWriter"><a class="viewcode-back" href="../../pubCompany.html#pubCompany.excel.ExcelWriter">[文档]</a><span class="k">class</span> <span class="nc">ExcelWriter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;docstring for ExcelWriter&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileHandle</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ExcelWriter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fh</span> <span class="o">=</span> <span class="n">fileHandle</span>
+
+<div class="viewcode-block" id="ExcelWriter.write"><a class="viewcode-back" href="../../pubCompany.html#pubCompany.excel.ExcelWriter.write">[文档]</a>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fh</span>
+        <span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">()</span>
+        <span class="n">sheet</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">active</span>
+        <span class="n">sheet</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Sheet1&#39;</span>
+        <span class="n">row_counter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+            <span class="n">col_counter</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">sheet</span><span class="p">[</span><span class="n">idx2ExcelIdx</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+                    <span class="n">sheet</span><span class="p">[</span><span class="n">idx2ExcelIdx</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+            <span class="n">col_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">row_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">wb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ExcelWriter.write_excel"><a class="viewcode-back" href="../../pubCompany.html#pubCompany.excel.ExcelWriter.write_excel">[文档]</a>    <span class="k">def</span> <span class="nf">write_excel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;_output.xlsx&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">filename</span> <span class="o">==</span> <span class="s1">&#39;_output.xlsx&#39;</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">+</span> <span class="n">filename</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">osp</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csv_file</span><span class="p">:</span>
+            <span class="n">table_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csv_file</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+                <span class="n">table_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span></div></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># print(col2num(&#39;AA&#39;))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">):</span>
+        <span class="n">rand</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">)</span>
+        <span class="n">txt</span> <span class="o">=</span> <span class="n">num2col</span><span class="p">(</span><span class="n">rand</span><span class="p">)</span>
+        <span class="n">txtrand</span> <span class="o">=</span> <span class="n">col2num</span><span class="p">(</span><span class="n">num2col</span><span class="p">(</span><span class="n">rand</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">rand</span> <span class="o">!=</span> <span class="n">txtrand</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Error&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">rand</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="n">txtrand</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">num2col</span><span class="p">(</span><span class="mi">689</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">idx2ExcelIdx</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)))</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2018, Hongpeng M.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

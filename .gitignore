@@ -2,8 +2,9 @@
 /.tmp.drivedownload
 debug.log
 *.pyc
-*.html
 *.csv
 *.xlsx
 translator.appid
 /IPODownloader/download/*.pdf
+/IPODownloader/pubCompany/*.html
+/IPOWatcher/*.html
