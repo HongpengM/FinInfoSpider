@@ -16,3 +16,5 @@ pubCompany.egg-info/PKG-INFO
 pubCompany.egg-info/SOURCES.txt
 pubCompany.egg-info/dependency_links.txt
 pubCompany.egg-info/top_level.txt
+pubCompany/zhconv/__init__.py
+pubCompany/zhconv/zhconv.py
