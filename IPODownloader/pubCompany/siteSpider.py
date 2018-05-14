@@ -6,10 +6,15 @@ import os.path as osp
 import random
 import re
 import csv
-import excel
-import decoder
-import translator
-from utils import *
+
+try:
+    import excel
+    import decoder
+    from utils import *
+except Exception:
+    from . import excel
+    from .import decoder
+    from .utils import *
 
 
 class SiteSpider(object):

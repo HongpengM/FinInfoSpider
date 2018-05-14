@@ -1,0 +1,8 @@
+LICENSE
+MANIFEST.in
+readme.md
+setup.py
+pubCompany/pubCompany.egg-info/PKG-INFO
+pubCompany/pubCompany.egg-info/SOURCES.txt
+pubCompany/pubCompany.egg-info/dependency_links.txt
+pubCompany/pubCompany.egg-info/top_level.txt

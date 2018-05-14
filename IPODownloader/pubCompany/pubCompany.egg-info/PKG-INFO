@@ -1,0 +1,62 @@
+Metadata-Version: 1.1
+Name: pubCompany
+Version: 0.1
+Summary: A simple spider to search and download public company files.
+Home-page: https://www.example.com/
+Author: Hongpeng M
+Author-email: mahongpengmars@163.com
+License: BSD License
+Description: # IPO Downloader
+        
+        根据列表搜索并爬取港交所HKEX的上市公司的指定文档
+        
+        ## Functions功能
+        
+        1. 搜索并下载港交所上市公司的指定文档
+        
+        ### searchAgent.py
+        
+        class HKEXSearchAgent 搜索港交所指定公司并获取指定文档的pdf下载链接
+        
+        ```python
+        hkexAgent = HKEXSearchAgent()
+        # 搜索指定上市公司的招股书
+        url = hkexAgent.searchForFile(Stock_name, ['股份', '配售', '全球', '預覽資料集'])
+        ```
+        
+        ### Downloader.py
+        
+        下载指定链接文件并自动命名
+        
+        ```
+        downloader = Downloader(url_list, savefile_name_list)
+        downloader.download()
+        ```
+        
+        
+        
+        ### excel.py
+        
+        list转换成xlsx
+        
+        ```python
+        excelwriter = excel.ExcelWriter()
+        excelwriter.write(a_list, 'name.xlsx')
+        ```
+        
+        ## Requirement
+        
+        ```python
+        selenium,bs4,tqdm
+        ```
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Spider

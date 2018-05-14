@@ -1,16 +1,20 @@
 from selenium import webdriver
-
+from selenium.common.exceptions import WebDriverException
 from time import sleep
 from bs4 import BeautifulSoup
 import os
 import os.path as osp
 import random
 import re
-import decoder
-import translator
-from tableExtractor import Extractor
-from utils import *
-from selenium.common.exceptions import WebDriverException
+
+try:
+    from tableExtractor import Extractor
+    from utils import *
+    import decoder
+except Exception:
+    from .tableExtractor import Extractor
+    from .utils import *
+    from . import decoder
 
 
 class HKEXSearchAgent(object):
@@ -33,7 +37,7 @@ class HKEXSearchAgent(object):
         self._browser.close()
 
     def searchForFile(self, stock_name, filenameList, key_word=None):
-        # TODO: Enable multi level 
+        # TODO: Enable multi level
         self.browser.get(self.searchEngine)
         input_stock_name = self.browser.find_element_by_name(
             'ctl00$txt_stock_name')
@@ -71,7 +75,7 @@ class HKEXSearchAgent(object):
             return result
 
     def fileUrlExtractor(self, filenameList, txt):
-        soup = decoder.url2soup(txt)
+        soup = html2soup(txt)
         data = soup.find_all(attrs={'id': 'ctl00_gvMain'})
         table = Extractor(data[0])
         table.parse()

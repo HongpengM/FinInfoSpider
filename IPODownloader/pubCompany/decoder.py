@@ -1,37 +1,17 @@
 # coding:utf-8
 import bs4
 from bs4 import BeautifulSoup
-from tableExtractor import Extractor
+
 import time
 import re
 __PRINT_INFO__ = False
 import os
-
-
-def stringPurify(string, delChar=None):
-    string = string.replace('\n', '')
-    if delChar:
-        for i in delChar:
-            string = string.replace(i, '')
-    return string.strip()
-
-
-def url2soup(url):
-    if '\n' in url:
-        soup = BeautifulSoup(url, 'lxml')
-    elif os.path.isfile(url):
-        with open(url, encoding='gbk') as f:
-            html = f.read()
-            # try:
-            #     html = html.encode('utf-8', 'ignore').decode('utf-8', 'ignore')
-            # except UnicodeError:
-            #     pass
-            start = time.clock()
-            soup = BeautifulSoup(html, 'lxml')
-            # soup = soup.prettify('gbk')
-    else:
-        print('URL converted to soup error')
-    return soup
+try:
+    from .tableExtractor import Extractor
+    from .utils import html2soup, stringPurify
+except Exception:
+    from tableExtractor import Extractor
+    from utils import html2soup, stringPurify
 
 
 class PageDecoder(object):
@@ -58,7 +38,7 @@ class PageDecoder(object):
         return self.result
 
     def decodeHKEX(self, url):
-        soup = url2soup(url)
+        soup = html2soup(url)
         data = soup.find_all('table',
                              attrs={'class': 'table_grey_border ms-rteTable-BlueTable_CHI'})
         # print(data)
@@ -90,7 +70,7 @@ class PageDecoder(object):
         return results
 
     def decodeNASDAQ(self, url):
-        soup = url2soup(url)
+        soup = html2soup(url)
         data = soup.find_all(attrs={'class': 'genTable'})
         # print(len(data))
         table = Extractor(data[0])
@@ -98,7 +78,7 @@ class PageDecoder(object):
         return table.return_list()
 
     def decodeNYSENew(self, url):
-        soup = url2soup(url)
+        soup = html2soup(url)
         data = soup.find_all('table',
                              attrs={'class': 'table table-data table-condensed spacer-lg'})
         # print(data)
